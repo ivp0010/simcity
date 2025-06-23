@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
 #include "splitter.h"
+#include "simManager.h"
 
 int main()
 {
-
+	simManager s;
 	std::string filename;
 	std::cout << "filename: ";
 	std::cin >> filename;
@@ -19,9 +20,10 @@ int main()
 		}
 		std::cout << std::endl;
 	}
-
-
-
+	
+	s.init(map, 1, 10);
+	
+	
 
 
 

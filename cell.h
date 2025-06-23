@@ -19,10 +19,14 @@ class cell
 		int getSize();
 		void setToInc();
 		void resetInc();
-	 	cords getLocation(); 
+		void setLocation(cords newCords);
+	 	cords getLocation();
+		void setIndex(int index);
+		int getIndex();
 
 	protected:
 		
+		int index;
 		int size;
 		bool toInc;
 		cords loc;

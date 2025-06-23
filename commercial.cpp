@@ -2,9 +2,10 @@
 #include "commercial.h"
 #include <iostream>
 
-commercial::commercial()
+commercial::commercial(cords pos, int index)
 {
+	this->index = index;
 	toInc = false;
 	size = 0;
-	loc = {.x = -1, .y = -1};
+	loc = pos;
 }

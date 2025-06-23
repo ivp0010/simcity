@@ -2,11 +2,12 @@
 #include "cell.h"
 #include "residential.h"
 
-residential::residential()
+residential::residential(cords pos, int index)
 {
+	this->index = index;
 	toInc = false;
 	size = 0;
-	loc = {.x = -1, .y = -1};
+	loc = pos;
 }
 
 bool residential::getEmp(int x)

@@ -6,7 +6,7 @@ cell::cell()
 {
 	toInc = false;
 	size = 0;
-	loc = {.x = 0, .y = 0};
+	loc = {.x = -1, .y = -1};
 }
 
 int cell::getSize()
@@ -28,3 +28,20 @@ cords cell::getLocation()
 {
 	return loc;
 }
+
+void cell::setLocation(cords newCords)
+{
+	loc = newCords;
+}
+
+void cell::setIndex(int index)
+{
+	this->index = index;
+}
+
+int cell::getIndex()
+{
+	return index;
+}
+
+

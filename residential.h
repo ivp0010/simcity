@@ -8,7 +8,7 @@ class residential : public cell
 {
 	public:
 		
-		residential();
+		residential(cords pos, int index);
 		bool getEmp(int x);
 
 	private:

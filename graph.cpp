@@ -11,6 +11,7 @@ graph::graph(int size)
 
 void graph::addEdge(int start, int dest)
 {
+	for(auto x : adjList[start]){if(x == dest){return;}}
 	adjList[start].push_back(dest);
 }
 
@@ -26,7 +27,7 @@ vector<int>* graph::getList(int x)
 
 void graph::printAdjList()
 {
-	for(int i = 0; i < adjList.size(); i++)
+	for(unsigned int i = 0; i < adjList.size(); i++)
 	{
 		cout << i << ": ";
 		for(auto x : adjList[i])
@@ -40,7 +41,7 @@ void graph::printAdjList()
 bool graph::validWalk(vector<int> &walk)
 {
 	bool valid;
-	for(int i = 0; i < walk.size() - 1; i++)
+	for(unsigned int i = 0; i < walk.size() - 1; i++)
 	{
 		valid = false;
 		for(auto x : adjList[walk[i]])
@@ -71,11 +72,11 @@ void graph::walkAnalysis(vector<int> &walk)
 	
 	bool repeated;
 
-	for(int i = 0; i < walk.size() - 1; i++)
+	for(unsigned int i = 0; i < walk.size() - 1; i++)
 	{
 		repeated = false;
 
-		for(int j = i + 1; j < walk.size(); j++)
+		for(unsigned int j = i + 1; j < walk.size(); j++)
 		{
 			if(walk[i] == walk[j] && walk[i + 1] == walk[j + 1])
 			{
@@ -100,7 +101,7 @@ void graph::walkAnalysis(vector<int> &walk)
 
 	if(trail)
 	{
-		for(int i = 0; i < walk.size(); i++)
+		for(unsigned int i = 0; i < walk.size(); i++)
 		{
 			repeated = false;
 			for(int j = 0; j < walk.size(); j++)
@@ -119,7 +120,7 @@ void graph::walkAnalysis(vector<int> &walk)
 
 	if(circuit)
 	{
-		for(int i = 0; i < walk.size() - 1; i++)
+		for(unsigned int i = 0; i < walk.size() - 1; i++)
 		{	
 			if(walk[0] != walk[walk.size() - 1]);
 			repeated = false;
@@ -138,7 +139,7 @@ void graph::walkAnalysis(vector<int> &walk)
 	}
 
 	cout << "The walk sequence <";
-	for(int i = 0; i < walk.size(); i++)
+	for(unsigned int i = 0; i < walk.size(); i++)
 	{
 		cout << walk[i];
 		if(i != walk.size() - 1)

@@ -2,36 +2,39 @@
 #include "cell.h"
 #include "industrial.h"
 
-industrial::industrial()
+industrial::industrial(cords pos, int index)
 {
+	this->index = index;
 	toInc = false;
 	pollution = 0;
 	size = 0;
 	goods = 0;
+	loc = pos;
 }
 
 
-void incPollution()
+void industrial::incPollution()
 {
 	pollution++;
 }
 
-int getPollution()
+int industrial::getPollution()
 {
 	return pollution;
 }
 
-void makeGoods()
+void industrial::makeGoods()
 {
 	goods++;
 }
 
-int getGoods()
+int industrial::getGoods()
 {
 	return goods;
 }
 
-void useGoods(int x)
+void industrial::useGoods(int x)
 {
-	goods - x
+	goods -= x;
+
 }

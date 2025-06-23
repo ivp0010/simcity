@@ -3,11 +3,11 @@
 #include "cell.h"
 #include <iostream>
 
-class inudstrial : public cell
+class industrial : public cell
 {
 	public:
 		
-		industrial();
+		industrial(cords pos, int index);
 		void incPollution();
 		int getPollution();
 		void makeGoods();

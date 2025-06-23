@@ -6,7 +6,7 @@ class commercial : public cell
 
 	public:	
 		
-		commercial();
+		commercial(cords pos, int index);
 
 
 	private:
