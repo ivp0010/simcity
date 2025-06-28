@@ -1,3 +1,5 @@
+#ifndef SPLITTER_H
+#define SPLITTER_H
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -26,3 +28,5 @@ void splitter(std::vector<std::vector<char>> &map, std::string filename)
 
 	i_s.close();
 }
+
+#endif

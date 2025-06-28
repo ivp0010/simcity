@@ -11,6 +11,7 @@
 #include <vector>
 #include <iostream>
 #include "graph.h"
+#include <queue>
 
 class simManager
 {
@@ -18,17 +19,29 @@ class simManager
 		
 		void init(const std::vector<std::vector<char>> &map, int refreshRate, int steps);
 		int getIndex(int x, int y);
+		void printMap();
+		void updateMap();
+		void runSim();
+		void resChecker();
+		int adjPopCheck(int index, int min);
+		int getAdjPop(int index);
+		void resolver();
+
+
 
 	private:
 
 		std::vector<std::vector<char>> startMap;
 		std::vector<std::vector<char>> changeMap;
+		std::vector<std::vector<char>> prevMap;
 		int refreshRate;
 		int steps;
 		resManager rStore;
 		indManager iStore;
 		comManager cStore;
+		std::vector<cell*> gStore;
 		graph* tracker;
+		std::queue<int> rQ;
 
 };
 

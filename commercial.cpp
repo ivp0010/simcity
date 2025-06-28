@@ -8,4 +8,6 @@ commercial::commercial(cords pos, int index)
 	toInc = false;
 	size = 0;
 	loc = pos;
+	type = 'c';
+	priority = 0;
 }

@@ -11,9 +11,10 @@ class manager
 
 		cell* at(int x);
 		void insert(cell* newCell);
+		unsigned int size();
 
 	protected:
-
+		
 		std::vector<cell*> store;
 
 };

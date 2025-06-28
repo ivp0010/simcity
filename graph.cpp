@@ -11,6 +11,7 @@ graph::graph(int size)
 
 void graph::addEdge(int start, int dest)
 {
+	if(start < 0 || start > (int)adjList.size() - 1){return;}	
 	for(auto x : adjList[start]){if(x == dest){return;}}
 	adjList[start].push_back(dest);
 }
@@ -37,7 +38,7 @@ void graph::printAdjList()
 		cout << endl;
 	}
 }
-
+/*
 bool graph::validWalk(vector<int> &walk)
 {
 	bool valid;
@@ -104,7 +105,7 @@ void graph::walkAnalysis(vector<int> &walk)
 		for(unsigned int i = 0; i < walk.size(); i++)
 		{
 			repeated = false;
-			for(int j = 0; j < walk.size(); j++)
+			for(unsigned int j = 0; j < walk.size(); j++)
 			{
 				if(j == i){continue;}
 				if(walk[i] == walk[j])
@@ -121,60 +122,5 @@ void graph::walkAnalysis(vector<int> &walk)
 	if(circuit)
 	{
 		for(unsigned int i = 0; i < walk.size() - 1; i++)
-		{	
-			if(walk[0] != walk[walk.size() - 1]);
-			repeated = false;
-                        for(int j = 0; j < walk.size() - 1; j++)
-                        {
-                                if(j == i){continue;}
-                                if(walk[i] == walk[j])
-                                {
-                                        repeated = true;
-                                        break;
-                                }
-                        }
-                        if(repeated){break;}
-		}
-		if(!repeated){cycle = true;}
-	}
-
-	cout << "The walk sequence <";
-	for(unsigned int i = 0; i < walk.size(); i++)
-	{
-		cout << walk[i];
-		if(i != walk.size() - 1)
 		{
-			cout << ", ";
-		}
-	}
-	cout << "> has the following properties: " << endl;
-
-	if(closed)
-	{
-		cout << "CLOSED" << endl;
-	}
-	else
-	{
-		cout << "OPEN" << endl;
-	}
-
-	if(trail)
-	{
-		cout << "TRAIL" << endl;
-	}
-
-	if(path)
-	{
-		cout << "PATH" << endl;
-	}
-
-	if(circuit)
-	{
-		cout << "CIRCUIT" << endl;
-	}
-
-	if(cycle)
-	{
-		cout << "CYCLE" << endl;
-	}
-}
+			*/

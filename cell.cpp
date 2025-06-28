@@ -7,11 +7,22 @@ cell::cell()
 	toInc = false;
 	size = 0;
 	loc = {.x = -1, .y = -1};
+	type = ' ';
+}
+
+void cell::setType(char type)
+{
+	this->type = type;
 }
 
 int cell::getSize()
 {
 	return size;
+}
+
+void cell::grow()
+{
+	size++;
 }
 
 void cell::setToInc()
@@ -22,6 +33,11 @@ void cell::setToInc()
 void cell::resetInc()
 {
 	toInc = false;
+}
+
+bool cell::getToInc()
+{
+	return toInc;
 }
 
 cords cell::getLocation()
@@ -44,4 +60,18 @@ int cell::getIndex()
 	return index;
 }
 
+char cell::getType()
+{
+	return type;
+}
+
+std::vector<bool>& cell::getEmp()
+{
+	return isEmp;
+}
+
+void cell::addWorker()
+{
+	isEmp.push_back(false);
+}
 

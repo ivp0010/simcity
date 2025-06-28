@@ -8,10 +8,7 @@ residential::residential(cords pos, int index)
 	toInc = false;
 	size = 0;
 	loc = pos;
+	type = 'r';
 }
 
-bool residential::getEmp(int x)
-{
-	return isEmp[x];
-}
 

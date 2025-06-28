@@ -7,22 +7,19 @@ int main()
 {
 	simManager s;
 	std::string filename;
+	int rr; //refresh rate;
+	int steps;
 	std::cout << "filename: ";
 	std::cin >> filename;
+	std::cout << "refresh rate: ";
+	std::cin >> rr;
+	std::cout << "number of time steps: ";
+	std::cin >> steps;
 	std::vector<std::vector<char>> map;
 	splitter(map, filename);
+	s.init(map, rr, steps);
+	s.runSim();	
 
-	for(unsigned int i = 0; i < map.size(); i++)
-	{
-		for(unsigned int j = 0; j < map[i].size(); j++)
-		{
-			std::cout << map[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
-	
-	s.init(map, 1, 10);
-	
 	
 
 

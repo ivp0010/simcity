@@ -23,6 +23,13 @@ class cell
 	 	cords getLocation();
 		void setIndex(int index);
 		int getIndex();
+		void setType(char type);
+		char getType();
+		void grow();
+		bool getToInc();
+		int priority;
+		std::vector<bool>&  getEmp();
+		void addWorker();
 
 	protected:
 		
@@ -30,6 +37,8 @@ class cell
 		int size;
 		bool toInc;
 		cords loc;
+		char type;
+		std::vector<bool> isEmp;
 };
 
 #endif

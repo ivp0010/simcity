@@ -12,3 +12,8 @@ void manager::insert(cell* newCell)
 {
 	store.push_back(newCell);
 }
+
+unsigned int manager::size()
+{
+	return store.size();
+}

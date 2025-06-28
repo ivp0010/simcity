@@ -13,12 +13,11 @@ class industrial : public cell
 		void makeGoods();
 		int getGoods();
 		void useGoods(int x);
-	
+
 	private:
 
 		int pollution;
 		int goods;
-
 };
 
 #endif

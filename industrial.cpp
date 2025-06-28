@@ -10,6 +10,8 @@ industrial::industrial(cords pos, int index)
 	size = 0;
 	goods = 0;
 	loc = pos;
+	type = 'i';
+	priority = 0;
 }
 
 

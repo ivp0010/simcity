@@ -9,11 +9,10 @@ class residential : public cell
 	public:
 		
 		residential(cords pos, int index);
-		bool getEmp(int x);
+
 
 	private:
 		
-		std::vector<bool> isEmp;
 };
 
 #endif
