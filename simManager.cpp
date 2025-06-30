@@ -18,7 +18,7 @@ void simManager::printMap()
 		}
 		std::cout << "\n";
 	}
-	std::cout << std::endl;
+
 	
 }
 
@@ -42,11 +42,13 @@ void simManager::updateMap()
 			}
 			case 'c':
 			{
+				if(iStore.getNumGoods() < 1){break;}
 				if(gStore[temp]->getSize() > 2){break;}
 				if(rStore.getNumWorkers() < 1){break;}
 				gStore[temp]->grow();
 				gStore[temp]->resetInc();
 				rStore.getWorkers(1);
+				iStore.sellGoods(1);
 				changeMap[gStore[temp]->getLocation().y][gStore[temp]->getLocation().x] = '0' + gStore[temp]->getSize();
 				break;
 			}
@@ -150,7 +152,11 @@ void simManager::init(const std::vector<std::vector<char>> &map, int refreshRate
 		}
 		
 	}
-
+	
+	std::cout << "-------------------------------------------------" << std::endl;
+	std::cout << "step 0" << std::endl; 
+	printMap();
+	std::cout << "-------------------------------------------------" << std::endl;
 }
 
 int simManager::getIndex(int x, int y)
@@ -174,17 +180,24 @@ void simManager::runSim()
 		resChecker();
 		resolver();
 		prevMap = changeMap;
+		iStore.produceGoods();
 		updateMap();
 		if(prevMap == changeMap)
 		{
 			std::cout << "no change has occured during time step " << i << " ending sim.\n";
 			std::cout << "final time step:\n";
 			printMap();
+			runPolSim();
 			break;
 		}
 		if(i % refreshRate == 0)
 		{
+			std::cout << "-------------------------------------------------" << std::endl;
+			std::cout << "step " << i + 1 << std::endl;
 			printMap();
+			std::cout << "Number of avaliable workers: " << rStore.getNumWorkers() << std::endl;
+			std::cout << "Number of goods: " << iStore.getNumGoods() << std::endl;
+			std::cout << "-------------------------------------------------" << std::endl;
 		}
 	}
 
@@ -600,4 +613,38 @@ void simManager::resolver()
 	idxStore.clear();
 
 
+}
+
+void simManager::runPolSim()
+{
+	pollutionMap.resize(startMap.size());
+	for(unsigned int i = 0; i < startMap.size(); i++)
+	{
+		for(unsigned int j = 0; j < startMap[i].size(); j++)
+		{
+			std::string temp = string(1, startMap[i][j]);
+			pollutionMap[i].push_back(temp);
+		}
+	}
+		
+	for(unsigned int i = 0; i < iStore.size(); i++)
+	{
+		if(iStore.at(i)->getSize() == 0){continue;}
+		cords temp = iStore.at(i)->getLocation();
+		std::string strL = ")";
+		std::string strR = "(";
+		std::string str = to_string(iStore.at(i)->getSize());
+		std::string pollution = strR + str + strL;
+		pollutionMap[temp.y][temp.x] += pollution;
+	}
+
+	for(int i = 0; i < pollutionMap.size(); i++)
+	{
+		for(auto x : pollutionMap[i])
+		{
+			std::cout << x << "    ";
+		}
+		std::cout << "\n\n";
+	}
+	
 }

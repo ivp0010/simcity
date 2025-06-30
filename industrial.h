@@ -8,11 +8,11 @@ class industrial : public cell
 	public:
 		
 		industrial(cords pos, int index);
-		void incPollution();
-		int getPollution();
-		void makeGoods();
-		int getGoods();
-		void useGoods(int x);
+		void incPollution() override;
+		int getPollution() override;
+		void makeGoods() override;
+		int getGoods() override;
+		void useGoods(int x) override;
 
 	private:
 

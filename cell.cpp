@@ -75,3 +75,13 @@ void cell::addWorker()
 	isEmp.push_back(false);
 }
 
+void cell::incPollution(){}
+
+int cell::getPollution(){return NULL;}
+
+void cell::makeGoods(){}
+
+int cell::getGoods(){return NULL;}
+
+void cell::useGoods(int x){}
+

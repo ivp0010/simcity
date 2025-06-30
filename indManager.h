@@ -7,7 +7,11 @@
 class indManager : public manager
 {
 	public:
-		
+	
+		void produceGoods();
+		void sellGoods(int x);
+		int getNumGoods();
+
 	private:
 
 };

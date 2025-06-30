@@ -26,6 +26,7 @@ class simManager
 		int adjPopCheck(int index, int min);
 		int getAdjPop(int index);
 		void resolver();
+		void runPolSim();
 
 
 
@@ -34,6 +35,7 @@ class simManager
 		std::vector<std::vector<char>> startMap;
 		std::vector<std::vector<char>> changeMap;
 		std::vector<std::vector<char>> prevMap;
+		std::vector<std::vector<std::string>> pollutionMap;
 		int refreshRate;
 		int steps;
 		resManager rStore;

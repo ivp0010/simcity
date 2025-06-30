@@ -30,6 +30,12 @@ class cell
 		int priority;
 		std::vector<bool>&  getEmp();
 		void addWorker();
+		virtual void incPollution();
+		virtual int getPollution();
+		virtual void makeGoods();
+		virtual int getGoods();
+		virtual void useGoods(int x);
+
 
 	protected:
 		
